@@ -9,11 +9,11 @@ public class Principal {
 
 	public static void main(String[] args) {
 		TabelaMoradorController tabela = new TabelaMoradorController(10);
-		String input, nome, modelo, cor, placa;
+		String input = "", nome, modelo, cor, placa;
 		int numApto, andar;
-		
-		try {
-			do {
+
+		do {
+			try {
 				input = JOptionPane.showInputDialog("MENU: \n1 - Adicionar morador \n2 - Remover morador \n3 - Buscar morador \n4 - Listar moradores de um andar \n5 - Sair", "");
 				if (input == null) {
 					JOptionPane.showMessageDialog(null, "Encerrando.");
@@ -81,11 +81,10 @@ public class Principal {
 						break;
 					}
 				}
-			} while (!input.equals("5"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Houve um erro durante a execução", "Erro", JOptionPane.ERROR_MESSAGE);
+				e.printStackTrace();
+			}
+		} while (!input.equals("5"));
 	}
-
 }
